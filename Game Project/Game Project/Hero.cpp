@@ -117,6 +117,21 @@ void Hero::draw(){
 
 		}
 	}
+	if (position.x < 0){
+		position.x = 1;
+	}
+	else if (position.x > 1250){
+		position.x = 1249;
+	}
+	if (position.y < 5){
+		position.y = 6;
+	}
+	else if (position.y > 710){
+		position.y = 709;
+	}
+	
+
+
 
 
 }
@@ -130,6 +145,8 @@ void Hero::beginTimeOut(){
 }
 
 void Hero::died(){
+
+	
 
 	//getting highest score
 	float highScore = 0;

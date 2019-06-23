@@ -122,6 +122,8 @@ int main(int argc, char** argv){
 	SDL_Texture* bloodSpriteSheetWithNoBG = SDL_CreateTextureFromSurface(renderer, bloodSurface);
 	SDL_FreeSurface(bloodSurface);
 
+	
+
 	//stars
 	SDL_Surface* shinySurface = IMG_Load("assets/shiny.png");
 	SDL_SetColorKey(shinySurface, 1, SDL_MapRGB(shinySurface->format, 0, 0, 0));
@@ -174,6 +176,7 @@ int main(int argc, char** argv){
 	Animation animShiny20(shinySpriteSheetWithNoBG, renderer, 7, 127, 127, 0.7);
 	Animation anim5(demonSpriteSheetWithNoBG, renderer, 4, 79, 71, 0.8);
 	Animation animTitle(titleSpriteSheetWithNoBG, renderer, 1, 766, 99, 1);
+
 	
 
 	//SETUP initial game entities
@@ -464,6 +467,7 @@ int main(int argc, char** argv){
 					hero->invincible = true;
 					hero->beginTimeOut();
 					//hero dies
+					
 					hero->died();
 			
 				}
@@ -489,8 +493,12 @@ int main(int argc, char** argv){
 							//sends the bullet far away
 							bulletPtr->setXY(3000, 3000);
 							//when hero gets more than 1000 score, chaser velocity increases and score is now +75
-							if (hero->score >= 1000){
+							if (hero->score >= 100){
 								hero->score += 15;
+								chaserPtr->velocity.x += 100;
+
+
+
 						}
 
 						}
